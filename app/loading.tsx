@@ -1,0 +1,1 @@
+export default function Loading(){return <main className="mx-auto min-h-screen max-w-screen animate-pulse px-5 pt-32 md:px-16"><div className="h-10 w-64 rounded bg-surface-high"/><div className="mt-10 grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-5">{Array.from({length:10},(_,i)=><div key={i} className="aspect-[2/3] rounded-xl bg-surface-high"/>)}</div></main>}
