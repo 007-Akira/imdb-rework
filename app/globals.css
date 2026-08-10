@@ -1,0 +1,3 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+@tailwind base;@tailwind components;@tailwind utilities;
+:root{color-scheme:dark}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#131314;color:#e5e2e3}.no-scrollbar::-webkit-scrollbar{display:none}.no-scrollbar{scrollbar-width:none}.hero-mask{background:linear-gradient(90deg,#131314 0%,rgba(19,19,20,.76) 42%,transparent 76%),linear-gradient(0deg,#131314 0%,transparent 48%)}.card-mask{background:linear-gradient(0deg,rgba(14,14,15,.96),transparent 55%)}button,a,input,select{outline-color:#f5c518}.line-clamp-2{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
