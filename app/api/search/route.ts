@@ -1,0 +1,1 @@
+import {NextRequest,NextResponse} from 'next/server';import {search} from '@/lib/tmdb';export async function GET(r:NextRequest){const q=r.nextUrl.searchParams.get('q')?.trim()||'';if(q.length<2)return NextResponse.json({results:[]});try{return NextResponse.json(await search(q))}catch{return NextResponse.json({results:[]},{status:500})}}
