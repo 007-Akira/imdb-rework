@@ -4,4 +4,5 @@ export interface Credit extends Media {character?:string;job?:string;department?
 export interface Video {id:string;key:string;name:string;site:string;type:string;official?:boolean;}
 export interface PageResult<T=Media>{page:number;results:T[];total_pages:number;total_results:number;}
 export interface Details extends Media {credits?:{cast:Credit[];crew:Credit[]};videos?:{results:Video[]};recommendations?:PageResult;combined_credits?:{cast:Credit[];crew:Credit[]};images?:{profiles:{file_path:string}[]};}
-export interface WatchlistItem {id:number;mediaType:'movie'|'tv';title:string;posterPath?:string|null;rating:number;releaseDate?:string;overview?:string;addedAt:number;}
+export interface WatchlistItem {_id:string;tmdbId:number;mediaType:'movie'|'tv';title:string;posterPath:string|null;backdropPath?:string|null;tmdbRating?:number;releaseDate?:string;overview?:string;addedAt:string;}
+export interface UserRating {_id?:string;tmdbId:number;mediaType:'movie'|'tv';rating:number;createdAt?:string;updatedAt?:string;}
