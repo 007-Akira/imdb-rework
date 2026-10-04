@@ -1,3 +1,38 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
-@tailwind base;@tailwind components;@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap')
+layer(base);
+@import 'tailwindcss';
+@config '../tailwind.config.mjs';
+
 :root{color-scheme:dark}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#131314;color:#e5e2e3}.no-scrollbar::-webkit-scrollbar{display:none}.no-scrollbar{scrollbar-width:none}.hero-mask{background:linear-gradient(90deg,#131314 0%,rgba(19,19,20,.76) 42%,transparent 76%),linear-gradient(0deg,#131314 0%,transparent 48%)}.card-mask{background:linear-gradient(0deg,rgba(14,14,15,.96),transparent 55%)}button,a,input,select{outline-color:#f5c518}.line-clamp-2{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+
+/* Motion: shared keyframes and helpers. Everything here is disabled for prefers-reduced-motion below. */
+@keyframes fade-up{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@keyframes fade-in{from{opacity:0}to{opacity:1}}
+@keyframes scale-in{from{opacity:0;transform:scale(.94)}to{opacity:1;transform:none}}
+@keyframes slide-down{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
+@keyframes ken-burns{from{transform:scale(1.12)}to{transform:scale(1)}}
+@keyframes shimmer{from{background-position:150% 0}to{background-position:-50% 0}}
+.anim-fade-up{animation:fade-up .7s cubic-bezier(.2,.7,.2,1) both}
+.anim-fade-in{animation:fade-in .25s ease-out both}
+.anim-scale-in{animation:scale-in .3s cubic-bezier(.2,.7,.2,1) both}
+.anim-slide-down{animation:slide-down .2s ease-out both}
+.anim-page{animation:fade-up .45s cubic-bezier(.2,.7,.2,1) both}
+.ken-burns{animation:ken-burns 18s ease-out both}
+.delay-1{animation-delay:.1s}.delay-2{animation-delay:.2s}.delay-3{animation-delay:.3s}.delay-4{animation-delay:.4s}
+/* Scroll reveal: toggled by components/Reveal.jsx via IntersectionObserver. */
+.reveal{opacity:0;transform:translateY(32px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
+.reveal.is-visible{opacity:1;transform:none}
+/* Placeholder shimmer that sits behind posters until the image paints over it. */
+.shimmer{background:linear-gradient(100deg,#2a2a2b 30%,#353436 50%,#2a2a2b 70%);background-size:200% 100%;animation:shimmer 1.6s linear infinite}
+/* Fade the left/right edges of horizontal rows so posters slide in and out softly. */
+.edge-fade{mask-image:linear-gradient(90deg,transparent,#000 3%,#000 97%,transparent)}
+/* Base-layer defaults so any Tailwind transition/duration utility on an element still wins. */
+@layer base{
+  button:not(:disabled),a{transition-property:color,background-color,border-color,box-shadow,opacity,transform,scale,translate;transition-duration:.2s;transition-timing-function:ease-out}
+  button:not(:disabled):active{transform:scale(.97)}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;animation-delay:0s!important;transition-duration:.01ms!important}
+  .reveal{opacity:1;transform:none}
+}
