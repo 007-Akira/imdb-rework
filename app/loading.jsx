@@ -1,2 +1,2 @@
-import CinemaLoader from '@/components/CinemaLoader';
-export default function Loading() { return <main className="pt-20"><CinemaLoader variant="inline"/></main>; }
+// Shown during page transitions. Kept deliberately light; the cinema loader is only used for the launch splash.
+export default function Loading() { return <main className="mx-auto min-h-screen max-w-screen px-5 pt-32 md:px-16"><div className="shimmer h-10 w-64 rounded"/><div className="mt-10 grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-5">{Array.from({ length: 10 }, (_, i) => <div key={i} className="shimmer aspect-2/3 rounded-xl" style={{ animationDelay: `${i * 80}ms` }}/>)}</div></main>; }
